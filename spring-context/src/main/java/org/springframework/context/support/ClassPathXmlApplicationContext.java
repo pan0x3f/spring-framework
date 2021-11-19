@@ -76,12 +76,13 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	}
 
 	/**
-	 * Create a new ClassPathXmlApplicationContext, loading the definitions
-	 * from the given XML file and automatically refreshing the context.
-	 * @param configLocation resource location
-	 * @throws BeansException if context creation failed
+	 * 创建一个ClassPathXmlApplicationContext对象,从给定的 XML 文件加载(bean)定义并自动刷新上下文。
+	 * @param configLocation 资源路径
+	 * @throws BeansException 如果上下文创建失败
 	 */
 	public ClassPathXmlApplicationContext(String configLocation) throws BeansException {
+		//表示一个对象的引用，它指向正在执行方法的对象
+		//运用this调用其他构造方法
 		this(new String[] {configLocation}, true, null);
 	}
 
@@ -124,20 +125,19 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	}
 
 	/**
-	 * Create a new ClassPathXmlApplicationContext with the given parent,
-	 * loading the definitions from the given XML files.
-	 * @param configLocations array of resource locations
-	 * @param refresh whether to automatically refresh the context,
-	 * loading all bean definitions and creating all singletons.
-	 * Alternatively, call refresh manually after further configuring the context.
-	 * @param parent the parent context
-	 * @throws BeansException if context creation failed
+	 * 通过给定的parent创建ClassPathXmlApplicationContext对象，从给定的 XML 文件加载(bean)定义。
+	 * @param configLocations 资源路径数组 [spring/Beans.xml,spring/...]
+	 * @param refresh 是否自动刷新上下文,
+	 * 加载所有的定义的bean并且单例的创建它们
+	 * 可选的, 在进一步配置上下文后手动调用刷新。
+	 * @param parent 父上下文
+	 * @throws BeansException 如果上下文创建失败
 	 * @see #refresh()
 	 */
 	public ClassPathXmlApplicationContext(
 			String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
 			throws BeansException {
-
+		//指向父类的引用,显式地调用父类的构造方法
 		super(parent);
 		setConfigLocations(configLocations);
 		if (refresh) {

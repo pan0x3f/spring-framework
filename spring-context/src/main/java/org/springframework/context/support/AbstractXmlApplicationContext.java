@@ -55,8 +55,8 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 	}
 
 	/**
-	 * Create a new AbstractXmlApplicationContext with the given parent context.
-	 * @param parent the parent context
+	 * 通过给定的父上下文创建一个AbstractXmlApplicationContext对象
+	 * @param parent 父上下文
 	 */
 	public AbstractXmlApplicationContext(@Nullable ApplicationContext parent) {
 		super(parent);
